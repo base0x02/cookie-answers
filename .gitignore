@@ -1,0 +1,6 @@
+.DS_Store
+/build/
+extension/node_modules/
+extension/dist/
+xcuserdata/
+*.xcuserstate

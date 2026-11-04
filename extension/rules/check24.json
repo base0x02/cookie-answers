@@ -1,0 +1,22 @@
+{
+    "name": "check24",
+    "_comment": "Overrides the upstream rule: the banner is server-rendered, so the first click can land before CHECK24's handlers are attached (seen on iOS Safari). Retry until it goes away.",
+    "prehideSelectors": [".c24-cookie-consent-wrapper"],
+    "detectCmp": [{ "exists": ".c24-cookie-consent-wrapper .c24-cookie-consent-functional" }],
+    "detectPopup": [{ "visible": ".c24-cookie-consent-notice" }],
+    "optIn": [
+        {
+            "waitForThenClick": ".c24-cookie-consent-notice .c24-cookie-consent-button:not(.c24-cookie-consent-button-secondary)",
+            "retry": 10,
+            "retryInterval": 500
+        }
+    ],
+    "optOut": [
+        {
+            "waitForThenClick": ".c24-cookie-consent-wrapper .c24-cookie-consent-functional",
+            "retry": 10,
+            "retryInterval": 500
+        }
+    ],
+    "test": [{ "visible": ".c24-cookie-consent-wrapper", "check": "none" }]
+}

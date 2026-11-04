@@ -1,0 +1,14 @@
+{
+    "name": "guardian-consent-or-pay",
+    "_comment": "The Guardian's Sourcepoint message is a consent-or-pay wall, so the upstream frame rule bails and Accept all mode leaves it on screen. optInOnly: never loaded in Reject mode, where upstream's sourcepoint-top hides the wall without answering it.",
+    "optInOnly": true,
+    "runContext": {
+        "main": false,
+        "frame": true,
+        "urlPattern": "^https://sourcepoint\\.theguardian\\.com/index\\.html"
+    },
+    "detectCmp": [{ "exists": ".sp_choice_type_11" }],
+    "detectPopup": [{ "visible": ".sp_choice_type_11" }],
+    "optIn": [{ "waitForThenClick": ".sp_choice_type_11" }],
+    "optOut": []
+}

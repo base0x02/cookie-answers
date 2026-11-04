@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cookie Answers</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <header>
+        <h1>Cookie Answers</h1>
+    </header>
+
+    <section id="page" hidden>
+        <div class="status">
+            <span id="status-dot" class="dot"></span>
+            <div>
+                <div id="status-text" class="status-text"></div>
+                <div id="status-detail" class="muted"></div>
+            </div>
+        </div>
+        <div id="timing" class="timing" hidden>
+            <div class="timeline" aria-hidden="true">
+                <div class="track"></div>
+                <span id="tl-ext" class="mark ext" title="Extension ready"></span>
+                <span id="tl-paint" class="mark paint" title="First paint"></span>
+                <span id="tl-banner" class="mark banner" title="Banner answered"></span>
+                <span id="tl-load" class="mark load" title="Page loaded"></span>
+            </div>
+            <dl id="timing-list"></dl>
+            <p id="timing-verdict" class="verdict"></p>
+        </div>
+        <label class="row">
+            <span>On <strong id="site"></strong></span>
+            <select id="site-mode">
+                <option value="">Use default</option>
+                <option value="optOut">Reject</option>
+                <option value="optIn">Accept all</option>
+                <option value="off">Do nothing</option>
+            </select>
+        </label>
+        <p id="reload-hint" class="muted" hidden>Reload the page to apply.</p>
+    </section>
+
+    <section>
+        <h2>Defaults</h2>
+        <label class="row">
+            <span>Cookie banners</span>
+            <select id="mode">
+                <option value="optOut">Reject (necessary only)</option>
+                <option value="optIn">Accept all</option>
+                <option value="off">Do nothing</option>
+            </select>
+        </label>
+        <label class="row">
+            <span>Unrecognised banners</span>
+            <select id="heuristics">
+                <option value="reject">Click “Reject” if present</option>
+                <option value="tier1">Reject, else dismiss</option>
+                <option value="off">Leave alone</option>
+            </select>
+        </label>
+        <label class="row check">
+            <span>Hide banners that offer no choice</span>
+            <input type="checkbox" id="cosmetic">
+        </label>
+    </section>
+
+    <script src="popup.js"></script>
+</body>
+</html>

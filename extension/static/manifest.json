@@ -1,0 +1,38 @@
+{
+    "manifest_version": 3,
+    "name": "Cookie Answers",
+    "short_name": "Cookie Answers",
+    "description": "Automatically answers cookie consent banners with your preferences.",
+    "version": "0.1.0",
+    "icons": {
+        "48": "icons/icon-48.png",
+        "96": "icons/icon-96.png",
+        "128": "icons/icon-128.png",
+        "256": "icons/icon-256.png",
+        "512": "icons/icon-512.png"
+    },
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://*/*"],
+            "js": ["content.js"],
+            "run_at": "document_start",
+            "all_frames": true
+        }
+    ],
+    "host_permissions": ["*://*/*"],
+    "permissions": ["storage", "scripting", "tabs"],
+    "action": {
+        "default_title": "Cookie Answers",
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icons/toolbar-16.png",
+            "32": "icons/toolbar-32.png"
+        }
+    },
+    "options_ui": {
+        "page": "popup.html"
+    }
+}

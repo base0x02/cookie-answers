@@ -1,0 +1,59 @@
+:root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --fg: #1c1c1e;
+    --muted: #6e6e73;
+    --line: #e5e5ea;
+    --ok: #2e7d32;
+    --warn: #c62828;
+    --idle: #8e8e93;
+    --found: #ef8f00;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #1c1c1e;
+        --fg: #f2f2f7;
+        --muted: #98989d;
+        --line: #38383a;
+    }
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    padding: 12px 16px 16px;
+    min-width: 300px;
+    font: 14px/1.4 -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+}
+h1 { font-size: 16px; margin: 0 0 8px; }
+/* iOS shows the extension name in the sheet header already */
+@media (hover: none) { header { display: none; } }
+h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin: 14px 0 4px; }
+section + section { border-top: 1px solid var(--line); }
+.status { display: flex; gap: 10px; align-items: flex-start; padding: 6px 0 10px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 5px; flex: none; background: var(--idle); }
+.dot.done { background: var(--ok); }
+.dot.failed { background: var(--warn); }
+.dot.found { background: var(--found); }
+.status-text { font-weight: 600; }
+.muted { color: var(--muted); font-size: 12px; }
+.timing { margin: 0 0 8px 20px; }
+.timing dl { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; margin: 6px 0 0; font-size: 12px; }
+.timing dt { color: var(--muted); display: flex; align-items: center; gap: 6px; }
+.timing dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+.timing dt::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--c, transparent); flex: none; }
+.verdict { font-size: 12px; margin: 6px 0 0; }
+.timeline { position: relative; height: 12px; margin: 4px 4px 0; }
+.timeline .track { position: absolute; left: 0; right: 0; top: 5px; height: 2px; background: var(--line); border-radius: 1px; }
+.timeline .mark { position: absolute; top: 2px; width: 8px; height: 8px; margin-left: -4px; border-radius: 50%; background: var(--c); }
+.timeline .mark[hidden] { display: none; }
+.ext { --c: #7c4dff; }
+.paint { --c: #0a84ff; }
+.banner { --c: var(--ok); }
+.load { --c: var(--muted); }
+.row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 6px 0; }
+.row span { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+select { font: inherit; max-width: 60%; }
+input[type=checkbox] { width: 18px; height: 18px; }
+#reload-hint { margin: 0 0 6px; }
